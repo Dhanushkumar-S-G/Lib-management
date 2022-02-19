@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+social-auth-app-django = "*"
+pillow = "*"
+msal = "*"
+pyyaml = "*"
+python-dateutil = "*"
+razorpay = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
