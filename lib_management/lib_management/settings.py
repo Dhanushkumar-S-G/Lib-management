@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,11 @@ INSTALLED_APPS = [
     # authentication
     'social_django',
 
+
+
+    #celery
+    'django_celery_results',
+    'django_celery_beat',
     # custom apps
     'home',
     'dashboard',
@@ -175,3 +181,28 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 RAZOR_KEY_ID = 'rzp_test_u7deuTCyVkMz9G'
 RAZOR_KEY_SECRET = 'R1GpzfJTzkDwVJpt2O0kHdsI'
+
+
+MESSAGE_TAGS = {
+    messages.DEBUG : 'alert-info',
+    messages.INFO : 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+
+
+#celery settings
+
+CELERY_BORKER_URL = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+
+#celery beat settings
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

@@ -15,30 +15,23 @@ Damage Reports
                     <table class="table datatable" style=" overflow:hidden;overflow-y: scroll;">
                         <thead>
                         <tr>
+                            <th scope="col">Book id </th>
                             <th scope="col">Name</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Edition</th>
-                            <th scope="col">Date Posted</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Copy no</th>
+                            <th scope="col">Date returned</th>
+                            <th scope="col">Renewed</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for book in books %}
+                        {% for i in iss %}
 
                         <tr>
-                            <td>{{book.title}}</td>
-                            <td>{{book.author}}</td>
-                            <td>{{book.book_edition}}</td>
-                            <td>{{book.date_posted}}</td>
-                            <td>
-                                <form method="post" action="">
-                                    {% csrf_token %}
-                                    <button type="submit" value="{{book.id}}" name="hide" class="btn btn-danger mb-2">
-                                        Hide
-                                    </button>
-                                </form>
-                            </td>
+                            <td>{{i.bookid.bookid}}</td>
+                            <td>{{i.bookid.title}}</td>
+                            <td>{{i.copy_no}}</td>
+                            <td>{{i.date_returned}}</td>
+                            <td>{{i.renewed}}</td>
                         </tr>
 
 

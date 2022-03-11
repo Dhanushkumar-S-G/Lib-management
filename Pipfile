@@ -11,6 +11,7 @@ msal = "*"
 pyyaml = "*"
 python-dateutil = "*"
 razorpay = "*"
+celery = "*"
 
 [dev-packages]
 
